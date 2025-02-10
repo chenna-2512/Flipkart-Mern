@@ -7,6 +7,10 @@ import Container from './Components/Container';
 import Category from './Utilities/Category';
 import Cart from './Utilities/Cart';
 import Subcategory from './Utilities/Subcategory';
+import Forgot from './Utilities/Forgot';
+import Orders from './Utilities/Orders';
+import Payment from './Components/Payment';
+import Address from './Components/Address';
 
 
 const App = () => {
@@ -16,6 +20,10 @@ const App = () => {
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<LandingPage />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/forgot" element={<Forgot />} />
+        <Route path="/address" element={<Address />} />
         <Route path="/container" element={<Container />} />
         <Route path="category/:title" element={<Category />} />
         <Route path="/:title" element={<Subcategory />} />

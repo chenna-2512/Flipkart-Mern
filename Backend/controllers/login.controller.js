@@ -26,9 +26,9 @@ export const login = async (req, res) => {
       });
       const Loggeduser={
         username: user.username,
-      email: user.email,
-      id: user._id,
-      token:token
+        email: user.email,
+        id: user._id,
+        token:token
       }
       // console.log(token);
       return res.status(201).json({

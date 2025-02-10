@@ -19,7 +19,11 @@ const LoginPage = () => {
       });
 
       if (response.status === 201) {
-        localStorage.setItem("token", response.data.token); // Store token
+        const { token, email, id } = response.data.Loggeduser;
+
+        localStorage.setItem("token", token); // Store token
+        localStorage.setItem("email", email);
+        localStorage.setItem("id", id);
         alert("Login Successful");
         navigate("/");
       }
@@ -32,6 +36,14 @@ const LoginPage = () => {
       }
     }
   };
+
+  const goToSignUp = () => {
+    navigate('/register')
+  }
+
+  const forgotPassword = () => {
+    navigate('/forgot')
+  }
 
   return (
     <>
@@ -61,11 +73,20 @@ const LoginPage = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="w-100 border-b-2 m-2 p-1 focus-visible:outline-none focus:ring-0 cursor-pointer"
             />
+            <a href="" className="text-sm font-semibold ml-67" onClick={forgotPassword}>
+              Forgot Password?
+            </a>
             <button
               className="bg-orange-400 p-2 w-75 font-semibold mt-2"
               onClick={goToHome}
             >
               Login
+            </button>
+            <button
+              className="bg-white p-2 w-75 font-semibold mt-2 border-b-2"
+              onClick={goToSignUp}
+            >
+              New User? Sign Up
             </button>
           </div>
         </div>

@@ -7,6 +7,9 @@ const Header = ({cartItemCount}) => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const cartLength = localStorage.getItem("cartLength");
+  console.log(cartLength);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     setIsLoggedIn(!!token); 

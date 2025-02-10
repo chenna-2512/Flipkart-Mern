@@ -7,7 +7,6 @@ const Subcategory = () => {
   const location = useLocation();
   const item = location.state;
   
-  const [cart, setCart] = useState([]);
   const [count,setcount] = useState(0);
 
   const handleIncrement = () => {
@@ -23,6 +22,7 @@ const Subcategory = () => {
 
   const addToCart = async () => {
     const token = localStorage.getItem("token"); 
+    const id = localStorage.getItem("id");
   
     if (!token) {
       alert("Please log in to add items to the cart.");
@@ -32,6 +32,7 @@ const Subcategory = () => {
     if (count === 0) return; 
   
     const cartItem = {
+      id: id,
       title: item.title,
       price: item.price,
       quantity: count, 

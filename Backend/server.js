@@ -6,6 +6,8 @@ import itemRouter from "./routes/itemRouter.js";
 import cartRouter from "./routes/cartRouter.js";
 import cors from "cors";
 import loginrouter from "./routes/loginRouter.js";
+import passwordRouter from "./routes/passwordRouter.js";
+import addressRouter from "./routes/addressRouter.js";
 
 dotenv.config();  // Load environment variables
 
@@ -31,12 +33,15 @@ mongoose
   });
 
 app.use(cors());
+app.use(express.json());  
 app.use(router);
 app.use(express.static('public'));
 app.use(itemRouter);
 app.use(cartRouter);
 app.use(loginrouter);
+app.use(passwordRouter);
+app.use(addressRouter)
 
 app.listen(3000, () => {
   console.log("Server is running on http://localhost:3000");
-});
+}); 
