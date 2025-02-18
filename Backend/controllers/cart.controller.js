@@ -72,3 +72,44 @@ export const deleteCartData = async (req, res) => {
         res.status(500).json({ message: "Failed to remove item" });
     }    
 };
+
+
+export const putdata = async (req, res) => {
+    try {
+        const { id, title, quantity } = req.body;
+
+        if (!id || quantity === undefined || title === undefined) {
+            return res.status(400).json({
+                message: "ID and quantity are required",
+            });
+        }
+
+        if (quantity < 1 || quantity > 10) {
+            return res.status(400).json({
+                message: "Quantity must be between 1 and 10",
+            });
+        }
+
+        const item = await Cart.findOne({ id, title });
+
+        if (!item) {
+            return res.status(404).json({
+                message: "Item not found in the cart",
+            });
+        }
+
+        item.quantity = quantity;
+
+        await item.save();
+
+        res.status(200).json({
+            message: "Quantity updated successfully",
+            data: item,
+        });
+    } catch (error) {
+        console.error("Error updating cart quantity:", error);
+        res.status(500).json({
+            message: "An error occurred while updating the cart",
+        });
+    }
+};

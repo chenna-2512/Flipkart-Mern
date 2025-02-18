@@ -13,7 +13,6 @@ const Cart = () => {
   const [toItems, setItems] = useState(0);
   const [isLogged, setLoggedIn] = useState(false);
 
-  // const cartLength = localStorage.setItem("cartLength",setCart.length);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -55,23 +54,69 @@ const Cart = () => {
     }
   };
 
-  const handleIncrement = (index) => {
+  const handleIncrement = async (index) => {
     const updatedCart = [...cart];
     if (updatedCart[index].quantity < 10) {
-      updatedCart[index].quantity += 1;
-      setCart(updatedCart);
-      updateTotal(updatedCart);
-    }
-  };
+        updatedCart[index].quantity += 1;
+        setCart(updatedCart);
+        updateTotal(updatedCart);
 
-  const handleDecrement = (index) => {
-    const updatedCart = [...cart];
-    if (updatedCart[index].quantity > 1) {
+        try {
+            const response = await fetch(`http://localhost:3000/putcartdata`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    id: updatedCart[index].id, 
+                    title: updatedCart[index].title, // Include the title
+                    quantity: updatedCart[index].quantity,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to update quantity in the backend");
+            }
+
+            const data = await response.json();
+            console.log("Updated successfully:", data);
+        } catch (error) {
+            console.error("Error updating quantity:", error);
+        }
+    }
+};
+
+const handleDecrement = async (index) => {
+  const updatedCart = [...cart];
+  if (updatedCart[index].quantity > 1) {
       updatedCart[index].quantity -= 1;
       setCart(updatedCart);
       updateTotal(updatedCart);
-    }
-  };
+
+      try {
+          const response = await fetch(`http://localhost:3000/putcartdata`, {
+              method: "PUT",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                  id: updatedCart[index].id, 
+                  title: updatedCart[index].title, // Include the title
+                  quantity: updatedCart[index].quantity,
+              }),
+          });
+
+          if (!response.ok) {
+              throw new Error("Failed to update quantity in the backend");
+          }
+
+          const data = await response.json();
+          console.log("Updated successfully:", data);
+      } catch (error) {
+          console.error("Error updating quantity:", error);
+      }
+  }
+};
 
   const updateTotal = (updatedCart) => {
     const amount = updatedCart.reduce((curr, item) => curr + item.price * item.quantity, 0);
@@ -110,6 +155,11 @@ const Cart = () => {
   const goToAddress = () => {
     navigate("/address");
   };
+
+  localStorage.setItem("total",total);
+  localStorage.setItem("perce",perce);
+  localStorage.setItem("before",before);
+  localStorage.setItem("toItems",toItems);
 
   return (
     <>

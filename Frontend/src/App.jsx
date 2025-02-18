@@ -11,6 +11,8 @@ import Forgot from './Utilities/Forgot';
 import Orders from './Utilities/Orders';
 import Payment from './Components/Payment';
 import Address from './Components/Address';
+import CartStructure from './Components/CartStructure';
+import OrderSummary from './Components/OrderSummary';
 
 
 const App = () => {
@@ -28,6 +30,10 @@ const App = () => {
         <Route path="category/:title" element={<Category />} />
         <Route path="/:title" element={<Subcategory />} />
         <Route path="/cart" element={<Cart />} />
+
+
+        <Route path="/cartstructure" element={<CartStructure />} />
+        <Route path="/ordersummary" element={<OrderSummary />} />
       </Routes>
     </BrowserRouter>
   );

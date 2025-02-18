@@ -32,3 +32,22 @@ export const postAddress = async (req,res) => {
         });
     }
 }
+
+
+export const getAddress = async (req,res) => {
+    try{
+        const {id,name} = req.body;
+
+        const addressdata = await Address.find( id );
+
+        res.status(200).json({
+            message : "Address get Successfully",
+            data : addressdata
+        });
+    }
+    catch(error){
+        res.status(400).json({
+            message : "Something Error Occured"
+        });
+    }
+}
