@@ -35,7 +35,7 @@ const Address = () => {
       };
 
       try{
-        const response = await fetch("http://localhost:3000/addresspost", {
+        const response = await fetch("https://flipkart-mern-1.onrender.com/addresspost", {
           method : "POST",
           headers: {
             "Content-Type":"application/json",

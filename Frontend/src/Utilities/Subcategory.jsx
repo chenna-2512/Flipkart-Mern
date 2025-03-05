@@ -42,7 +42,7 @@ const Subcategory = () => {
     };
   
     try {
-      const response = await fetch("http://localhost:3000/cartpost", {
+      const response = await fetch("https://flipkart-mern-1.onrender.com/cartpost", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

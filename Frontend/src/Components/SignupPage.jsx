@@ -56,7 +56,7 @@ const SignupPage = () => {
       toast.success("OTP validated successfully!");
       const userDetails = { username, email, password };
       try {
-        const response = await fetch("http://localhost:3000/postemail", {
+        const response = await fetch("https://flipkart-mern-1.onrender.com/postemail", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(userDetails),

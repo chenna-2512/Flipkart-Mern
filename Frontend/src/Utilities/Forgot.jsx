@@ -21,7 +21,7 @@ const Forgot = () => {
 
   const checkEmailExists = async (normalizedEmail) => {
     try {
-      const response = await axios.post("http://localhost:3000/emaildata", { email: normalizedEmail });
+      const response = await axios.post("https://flipkart-mern-1.onrender.com/emaildata", { email: normalizedEmail });
       return response.data.message.toLowerCase() === "email exists";
     } catch (error) {
       console.error("Error checking email existence:", error);
@@ -79,7 +79,7 @@ const Forgot = () => {
 
     setLoading(true);
     try {
-      await axios.put("http://localhost:3000/updatepassword", { email: email.trim().toLowerCase(), password: updatepassword });
+      await axios.put("https://flipkart-mern-1.onrender.com/updatepassword", { email: email.trim().toLowerCase(), password: updatepassword });
       toast.success("Password updated successfully");
       setDisplay(false);
       setEmail("");

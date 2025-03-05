@@ -20,7 +20,7 @@ const CartStructure = () => {
         const storedid = localStorage.getItem("id");
         if (isLogged) {
             axios
-            .get("http://localhost:3000/getcartitems")
+            .get("https://flipkart-mern-1.onrender.com/getcartitems")
             .then((response) => {
                 const cartdata = response?.data?.data || [];
                 const userCart = cartdata.filter(item => item.id === storedid);
@@ -37,7 +37,7 @@ const CartStructure = () => {
         const itemToRemove = cart[index];
         try {
             const response = await axios.delete(
-                `http://localhost:3000/deletedata/${itemToRemove._id}`
+                `https://flipkart-mern-1.onrender.com/deletedata/${itemToRemove._id}`
             );
             if (response.status === 200) {
                 const updatedItems = cart.filter((_, i) => i !== index);

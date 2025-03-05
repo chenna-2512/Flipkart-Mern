@@ -24,7 +24,7 @@ const LoginPage = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3000/logindata", {
+      const response = await axios.post("https://flipkart-mern-1.onrender.com/logindata", {
         email,
         password,
       });

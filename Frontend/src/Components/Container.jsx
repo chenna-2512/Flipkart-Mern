@@ -7,7 +7,7 @@ const Container = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:3000/postItems")
+    axios.get("https://flipkart-mern-1.onrender.com/postItems")
       .then(response => {
         const products = response?.data?.data;
         const categoryItems = {};
