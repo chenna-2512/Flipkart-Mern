@@ -13,6 +13,7 @@ import Payment from './Components/Payment';
 import Address from './Components/Address';
 import CartStructure from './Components/CartStructure';
 import OrderSummary from './Components/OrderSummary';
+import Success from './Utilities/Success';
 
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
 
         <Route path="/cartstructure" element={<CartStructure />} />
         <Route path="/ordersummary" element={<OrderSummary />} />
+        <Route path="/success" element={<Success />} />
       </Routes>
     </BrowserRouter>
   );

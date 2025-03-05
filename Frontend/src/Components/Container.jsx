@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const Container = () => {
   const [items, setItems] = useState({}); // Store categorized items as state
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,11 +14,9 @@ const Container = () => {
 
         for (let item of products) {
           let category = item.category;
-
           if (!categoryItems[category]) {
             categoryItems[category] = [];
           }
-
           categoryItems[category].push(item);
         }
 
@@ -31,12 +28,22 @@ const Container = () => {
   }, []);
 
   return (
-    <div className="flex gap-10 justify-center items-center cursor-pointer p-8">
+    <div className="flex flex-wrap justify-center items-center gap-6 p-4 md:p-8">
       {Object.entries(items).map(([category, itemList]) => (
-        <div key={category} className="flex flex-col justify-center items-center" onClick={()=> navigate(`category/${category}`,{state : {itemList}})}>
-          <p>{itemList[0]?.name}</p>
-          {itemList[0]?.image && <img src={itemList[0].image} alt={itemList[0].name}  className="w-70 h-80 rounded-lg border-3 border-red-500 hover:shadow-2xl hover:rounded-xl hover:border-green-400"/>}
-          <h3 className="mt-4 font-semibold text-xl">{category}</h3>
+        <div 
+          key={category} 
+          className="flex flex-col justify-center items-center cursor-pointer transition-transform duration-300 transform hover:scale-105"
+          onClick={() => navigate(`category/${category}`, { state: { itemList } })}
+        >
+          <p className="text-center font-medium text-lg">{itemList[0]?.name}</p>
+          {itemList[0]?.image && (
+            <img 
+              src={itemList[0].image} 
+              alt={itemList[0].name}  
+              className="w-40 h-52 md:w-60 md:h-72 lg:w-70 lg:h-80 rounded-lg border-3 border-red-500 hover:shadow-2xl hover:rounded-xl hover:border-green-400"
+            />
+          )}
+          <h3 className="mt-3 font-semibold text-xl">{category}</h3>
         </div>
       ))}
     </div>

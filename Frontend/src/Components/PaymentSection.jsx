@@ -1,9 +1,13 @@
 import { useState } from "react";
 import Phonepay from "./Phonepay";
 import CreditCard from "./CreditCard";
-import OrderSummary from "./OrderSummary";
+// import OrderSummary from "./OrderSummary";
+import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const PaymentSection = () => {
+
+  const navigate = useNavigate(); 
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("");
   const [phonepay, setPhonepay] = useState(false);
   const [paytm, setPaytm] = useState(false);
@@ -26,15 +30,16 @@ const PaymentSection = () => {
 
   const handlePayment = () => {
     if (selectedPaymentMethod) {
-      alert(`Payment method selected: ${selectedPaymentMethod}`);
+      toast.success(`Payment method selected: ${selectedPaymentMethod}`);
+      navigate("/success")
     } else {
-      alert("Please select a payment method to proceed.");
+      toast.error("Please select a payment method to proceed.")
     }
   };
 
   return (
     <div >
-      
+        <ToastContainer/>
         <h1 className="bg-blue-500 p-2 font-semibold text-lg text-white w-full rounded-lg">
           Payment
         </h1>

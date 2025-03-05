@@ -1,6 +1,7 @@
 import { useState } from "react";
 import img from "../assets/flipkart logo.png";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer,toast } from "react-toastify";
 
 const Address = () => {
 
@@ -18,7 +19,7 @@ const Address = () => {
       const id = localStorage.getItem("id");
 
       if(!token) {
-        alert("Please login to add your address");
+        toast.error("Please login to add your address")
         return;
       }
 
@@ -46,7 +47,7 @@ const Address = () => {
         const data = await response.json();
         console.log("Response from server:", data);
         if (data.message.includes("successfully")) {
-          alert(data.message);
+          toast.message(data.message);
         }
       }catch(error){
         console.log("Error Adding Address : ",error);
@@ -59,7 +60,7 @@ const Address = () => {
 
   return (
     <>
-      
+      <ToastContainer/>
       <div className="bg-blue-500 p-4 flex">
         <img src={img} alt="Flipkart Logo" className="w-20 ml-[15%] cursor-pointer" onClick={goToHome}/>
       </div>

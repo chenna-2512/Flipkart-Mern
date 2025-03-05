@@ -9,21 +9,19 @@ import loginrouter from "./routes/loginRouter.js";
 import passwordRouter from "./routes/passwordRouter.js";
 import addressRouter from "./routes/addressRouter.js";
 
-dotenv.config();  // Load environment variables
+dotenv.config(); 
 
 const app = express();
 app.use(express.json());
 
-// Ensure MongoDB URL is loaded
 const url = process.env.MONGO_URL;
 if (!url) {
   console.error("MONGO_URL is missing in .env file!");
   process.exit(1);
 }
 
-console.log("MongoDB URL:", url); // Debugging
+console.log("MongoDB URL:", url); 
 
-// Connect to MongoDB
 mongoose
   .connect(url)
   .then(() => console.log("Connected to MongoDB!"))
