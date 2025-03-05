@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Container = () => {
-  const [items, setItems] = useState({}); // Store categorized items as state
+  const [items, setItems] = useState({}); 
   const navigate = useNavigate();
 
   useEffect(() => {

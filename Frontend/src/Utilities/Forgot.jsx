@@ -98,14 +98,12 @@ const Forgot = () => {
       <Header />
       <ToastContainer />
       <div className="flex flex-col mt-[2%] md:flex-row p-4 md:p-5 gap-4 md:gap-6 justify-center items-center">
-        {/* Left Section - Image */}
         <div className="bg-blue-500 p-5 w-full md:w-1/3 text-center md:text-left">
           <p className="text-2xl md:text-4xl font-semibold">Update Password</p>
           <p className="text-gray-200 mt-2">Verify your email and update your password</p>
           <img src={img} alt="Login" className="hidden md:block mx-auto mt-5" />
         </div>
 
-        {/* Right Section - Form */}
         <div className="bg-gray-200 p-4 md:p-6 w-full md:w-1/3 rounded-lg shadow-lg">
           {!displayEmail ? (
             <div className="flex flex-col items-center">

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Phonepay from "./Phonepay";
 import CreditCard from "./CreditCard";
-// import OrderSummary from "./OrderSummary";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 

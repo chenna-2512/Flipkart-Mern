@@ -1,4 +1,3 @@
-import React from 'react'
 import img from "../assets/flipkart logo.png";
 import { useNavigate } from 'react-router-dom';
 import Footer from '../Components/Footer';

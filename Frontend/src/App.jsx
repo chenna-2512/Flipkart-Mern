@@ -1,6 +1,5 @@
-// import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import SignUp from './Components/SignupPage'; // Ensure the path is correct
+import SignUp from './Components/SignupPage';
 import LoginPage from './Components/LoginPage';
 import LandingPage from './Utilities/LandingPage';
 import Container from './Components/Container';

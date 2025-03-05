@@ -1,4 +1,3 @@
-// import React from 'react'
 import qr from "../assets/QR.jpg"
 
 const Phonepay = () => {

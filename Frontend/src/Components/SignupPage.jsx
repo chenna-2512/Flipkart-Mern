@@ -82,7 +82,7 @@ const SignupPage = () => {
       <ToastContainer />
       <div className="flex flex-col mb-[1%] md:flex-row items-center justify-center p-5 gap-5">
         <div className="bg-blue-500 text-white p-5 w-full md:w-1/2 text-center md:text-left">
-          <p className="text-4xl font-semibold">Looks like you're new here</p>
+          <p className="text-4xl font-semibold">Looks like you are new here</p>
           <p className="text-lg pt-3">Sign Up with Username, Email, and Password</p>
           <img src={loginimage} alt="Login" className="w-1/3 mx-auto md:mx-0 pt-5" />
         </div>

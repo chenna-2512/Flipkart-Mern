@@ -113,7 +113,6 @@ const Cart = () => {
   };
 
   const goToLogin = () => navigate("/login");
-  // const goToOrders = () => navigate("/orders");
   const goToAddress = () => navigate("/address");
 
   localStorage.setItem("total", total);
@@ -142,7 +141,6 @@ const Cart = () => {
             <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Your Shopping Cart</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Cart Items */}
               <div className="md:col-span-2 space-y-6">
                 {cart.map((item, index) => (
                   <div key={index} className="p-4 bg-white rounded-lg shadow-md flex items-center">
@@ -164,8 +162,6 @@ const Cart = () => {
                   </div>
                 ))}
               </div>
-
-              {/* Order Summary */}
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h1 className="text-xl font-bold mb-3">Order Summary</h1>
                 <p className="flex justify-between"><span>Total Amount:</span> ₹{before}</p>

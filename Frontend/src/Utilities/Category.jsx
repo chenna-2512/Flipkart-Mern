@@ -1,12 +1,11 @@
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate} from "react-router-dom";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 
 const Category = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const item = location.state?.itemList || []; // Ensure itemList is an array
-  const { head } = useParams();
+  const item = location.state?.itemList || []; 
 
   return (
     <>

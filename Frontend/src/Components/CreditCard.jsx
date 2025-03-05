@@ -1,5 +1,3 @@
-// import React from 'react';
-
 const CreditCard = () => {
   return (
     <div className="w-[50%] ml-4">
