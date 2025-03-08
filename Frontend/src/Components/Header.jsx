@@ -21,15 +21,15 @@ const Header = ({ cartItemCount }) => {
 
   const handleSearch = () => {
     if (searchQuery.trim() !== "") {
-      navigate(`/search?q=${searchQuery}`);
+      navigate(`/category/${searchQuery}`);
     }
   };
 
   return (
-    <div className="flex flex-col md:flex-row bg-blue-600 items-center justify-between p-4 gap-4 md:gap-10">
+    <div className="flex flex-row bg-blue-600 items-center justify-center p-4 gap-4 md:gap-10">
       <div className="flex flex-col items-center md:items-start cursor-pointer" onClick={() => navigate("/")}> 
-        <img src={img} alt="flipkart logo" className="w-20" />
-        <a href="#" className="font-semibold">
+        <img src={img} alt="flipkart logo" className="w-15" />
+        <a href="#" className="font-semibold text-sm md:text-sm">
           Explore <span className="text-orange-400 font-semibold">Plus</span>
         </a>
       </div>
@@ -50,14 +50,14 @@ const Header = ({ cartItemCount }) => {
       <div>
         {isLoggedIn ? (
           <button
-            className="bg-white py-1 px-6 font-bold text-red-400 rounded-sm"
+            className="bg-white py-1 px-6 font-bold text-red-400 rounded-sm md:px-2 md:text-lg md:font-semibold"
             onClick={handleLogout}
           >
             Logout
           </button>
         ) : (
           <button
-            className="bg-white py-1 px-6 font-semibold text-blue-500 rounded-sm"
+            className="bg-white py-1 px-2 font-semibold text-blue-500 rounded-sm md:px-2 md:text-lg md:font-semibold"
             onClick={() => navigate("/login")}
           >
             Login
@@ -75,7 +75,7 @@ const Header = ({ cartItemCount }) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="size-8"
+          className="size-4"
         >
           <path
             strokeLinecap="round"
@@ -83,7 +83,7 @@ const Header = ({ cartItemCount }) => {
             d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
           />
         </svg>
-        <span className="text-xl ml-1">Cart<sup className="text-yellow-100 p-1">{cartItemCount}</sup></span>
+        <span className="text-lg ml-1">Cart<sup className="text-yellow-100 p-1">{cartItemCount}</sup></span>
       </div>
     </div>
   );
