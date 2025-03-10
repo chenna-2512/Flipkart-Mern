@@ -85,9 +85,9 @@ const Subcategory = () => {
             💰 {item.price}
           </h1>
           <div className="flex gap-2 mt-5 p-2 bg-black text-white w-32 md:w-40 items-center justify-center rounded-lg">
-            <button onClick={handleIncrement} className="text-xl">➕</button>
-            <h2>{count}</h2>
             <button onClick={handleDecrement} className="text-xl">➖</button>
+            <h2>{count}</h2>
+            <button onClick={handleIncrement} className="text-xl">➕</button>
           </div>
           <div className="flex justify-center">
             <button
