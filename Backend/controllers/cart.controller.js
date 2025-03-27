@@ -2,12 +2,11 @@ import { Cart } from "../models/cart.model.js";
 
 export const cartItems = async (req, res) => {
     try {
-        const { id, title, price, quantity, image} = req.body;
+        const { id, title, price, quantity, image } = req.body;
 
-        const existingItem = await Cart.findOne({ id });
-        const existingtitle = await Cart.findOne({ title });
+        const existingItem = await Cart.findOne({ id, title });
 
-        if (existingItem && existingtitle) {
+        if (existingItem) {
             existingItem.quantity = quantity;
             await existingItem.save();
 
@@ -15,20 +14,20 @@ export const cartItems = async (req, res) => {
                 message: "Cart item updated successfully",
                 data: existingItem
             });
-        } else{
+        } else {
             const newCartItem = new Cart({
                 id,
                 title,
                 price,
                 quantity,
                 image
-            })
+            });
 
             await newCartItem.save();
 
             res.status(201).json({
                 message: "Item is added to cart successfully",
-                data:newCartItem
+                data: newCartItem
             });
         }
     } catch (err) {
